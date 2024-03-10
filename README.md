@@ -1,3 +1,18 @@
+# how it looks 
+[Local screen record](https://github.com/ozkanpakdil/DockFX/assets/604405/2a6e7c72-9fe8-45ed-a036-f99fbcae724f)
+
+# requirements
+Download the SDK from https://gluonhq.com/products/javafx/ and extract it to a folder, then add the path to the folder to the module path in the command below. in my case /home/oz-mint/tools/javafx-sdk-21.0.2/lib
+
+# demo.dockFX local run command
+I am leaving the all parameters below for linux below, change it accordingly to your system
+
+```bash
+/home/oz-mint/.sdkman/candidates/java/22.1.0.1.r17-gln/bin/java --module-path /home/oz-mint/tools/javafx-sdk-21.0.2/lib --add-modules=javafx.controls,javafx.web --add-exports=javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED --add-exports=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED --add-exports=javafx.graphics/com.sun.javafx.scene.input=ALL-UNNAMED -javaagent:/home/oz-mint/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/lib/idea_rt.jar=36879:/home/oz-mint/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin -Dfile.encoding=UTF-8 -classpath /home/oz-mint/Downloads/DockFX/target/classes:/home/oz-mint/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21-linux.jar org.dockfx.demo.DockFX
+```
+
+I added run configuration and intellij files just for future, configuring javafx in local is complex.
+
 # DockFX [![Build Status](https://goombert.visualstudio.com/DockFX/_apis/build/status/RobertBColton.DockFX?branchName=master)](https://goombert.visualstudio.com/DockFX/_build/latest?definitionId=1&branchName=master)
 <table>
 <tr>

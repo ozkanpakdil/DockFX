@@ -24,17 +24,12 @@ import javafx.scene.input.PickResult;
  * an event type. The event source specifies for an event handler the object on which that handler
  * has been registered and which sent the event to it. The event target defines the path through
  * which the event will travel when posted. The event type provides additional classification to
- * events of the same {@code DockEvent} class. Like a {@link MouseEvent} the event will be
+ * events of the same {@code DockEvent} class. Like a {@link javafx.scene.input.MouseEvent} the event will be
  * associated with an x and y coordinate local to the node as well as to the screen.
  * 
  * @since DockFX 0.1
  */
 public class DockEvent extends Event {
-  /**
-   * Generated Serial Version UID
-   */
-  private static final long serialVersionUID = 4413700316447127355L;
-
   /**
    * Common supertype for all dock event types.
    */
