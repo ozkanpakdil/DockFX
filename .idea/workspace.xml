@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/DockFX.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/DockNodeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/demo/DockFX.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +17,13 @@
     <option name="groupingKeys">
       <option value="directory" />
       <option value="module" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
     </option>
   </component>
   <component name="Git.Settings">
@@ -78,6 +73,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.dockfx" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="DockFX" />
@@ -130,12 +133,33 @@
       <workItem from="1710064962209" duration="257000" />
       <workItem from="1710065578907" duration="10000000" />
       <workItem from="1710077286356" duration="826000" />
-      <workItem from="1710078398472" duration="3013000" />
+      <workItem from="1710078398472" duration="4085000" />
     </task>
+    <task id="LOCAL-00001" summary="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
+      <option name="closed" value="true" />
+      <created>1710085085514</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710085085514</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
+      <option name="closed" value="true" />
+      <created>1710085228968</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710085228968</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test" />
+    <option name="LAST_COMMIT_MESSAGE" value="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
