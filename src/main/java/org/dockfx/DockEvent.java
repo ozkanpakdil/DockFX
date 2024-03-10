@@ -33,7 +33,7 @@ public class DockEvent extends Event {
   /**
    * Common supertype for all dock event types.
    */
-  public static final EventType<DockEvent> ANY = new EventType<DockEvent>(Event.ANY, "DOCK");
+  public static final EventType<DockEvent> ANY = new EventType<>(Event.ANY, "DOCK");
 
   /**
    * This event occurs when a dock window is being dragged by its title bar and the mouse enters a
@@ -41,7 +41,7 @@ public class DockEvent extends Event {
    * be interested in receiving the dock pane.
    */
   public static final EventType<DockEvent> DOCK_ENTER =
-      new EventType<DockEvent>(DockEvent.ANY, "DOCK_ENTER");
+          new EventType<>(DockEvent.ANY, "DOCK_ENTER");
 
   /**
    * This event occurs when a dock window is being dragged by its title bar and the mouse is
@@ -49,7 +49,7 @@ public class DockEvent extends Event {
    * stages that may be interested in receiving the dock pane.
    */
   public static final EventType<DockEvent> DOCK_OVER =
-      new EventType<DockEvent>(DockEvent.ANY, "DOCK_OVER");
+          new EventType<>(DockEvent.ANY, "DOCK_OVER");
 
   /**
    * This event occurs when a dock window is being dragged by its title bar and the mouse exits a
@@ -57,7 +57,7 @@ public class DockEvent extends Event {
    * be interested in receiving the dock pane.
    */
   public static final EventType<DockEvent> DOCK_EXIT =
-      new EventType<DockEvent>(DockEvent.ANY, "DOCK_EXIT");
+          new EventType<>(DockEvent.ANY, "DOCK_EXIT");
 
   /**
    * This event occurs when a dock window is being dragged by its title bar and the mouse is
@@ -65,7 +65,7 @@ public class DockEvent extends Event {
    * stages that may be interested in receiving the dock pane.
    */
   public static final EventType<DockEvent> DOCK_RELEASED =
-      new EventType<DockEvent>(DockEvent.ANY, "DOCK_RELEASED");
+          new EventType<>(DockEvent.ANY, "DOCK_RELEASED");
 
   /**
    * Horizontal x position of the event relative to the origin of the DockEvent's node.
