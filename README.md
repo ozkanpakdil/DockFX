@@ -8,7 +8,7 @@ Download the SDK from https://gluonhq.com/products/javafx/ and extract it to a f
 I am leaving the all parameters below for linux below, change it accordingly to your system
 
 ```bash
-/home/oz-mint/.sdkman/candidates/java/22.1.0.1.r17-gln/bin/java --module-path /home/oz-mint/tools/javafx-sdk-21.0.2/lib --add-modules=javafx.controls,javafx.web --add-exports=javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED --add-exports=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED --add-exports=javafx.graphics/com.sun.javafx.scene.input=ALL-UNNAMED -javaagent:/home/oz-mint/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/lib/idea_rt.jar=36879:/home/oz-mint/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin -Dfile.encoding=UTF-8 -classpath /home/oz-mint/Downloads/DockFX/target/classes:/home/oz-mint/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21-linux.jar org.dockfx.demo.DockFX
+/home/oz-mint/.sdkman/candidates/java/22.1.0.1.r17-gln/bin/java --module-path /home/oz-mint/tools/javafx-sdk-21.0.2/lib --add-modules=javafx.controls,javafx.web --add-exports=javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED --add-exports=javafx.graphics/com.sun.javafx.css=ALL-UNNAMED --add-exports=javafx.graphics/com.sun.javafx.scene.input=ALL-UNNAMED -javaagent:/home/oz-mint/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/lib/idea_rt.jar=42347:/home/oz-mint/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin -Dfile.encoding=UTF-8 -classpath /home/oz-mint/Downloads/DockFX/target/test-classes:/home/oz-mint/Downloads/DockFX/target/classes:/home/oz-mint/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-web/21/javafx-web-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-media/21/javafx-media-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-controls/21/javafx-controls-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-graphics/21/javafx-graphics-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-base/21/javafx-base-21-linux.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21.jar:/home/oz-mint/.m2/repository/org/openjfx/javafx-fxml/21/javafx-fxml-21-linux.jar:/home/oz-mint/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:/home/oz-mint/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/oz-mint/.m2/repository/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2.jar:/home/oz-mint/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/oz-mint/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar:/home/oz-mint/.m2/repository/org/junit/platform/junit-platform-engine/1.9.2/junit-platform-engine-1.9.2.jar:/home/oz-mint/.m2/repository/org/testfx/testfx-junit5/4.0.17/testfx-junit5-4.0.17.jar:/home/oz-mint/.m2/repository/org/testfx/testfx-core/4.0.17/testfx-core-4.0.17.jar:/home/oz-mint/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/home/oz-mint/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/home/oz-mint/.m2/repository/org/assertj/assertj-core/3.13.2/assertj-core-3.13.2.jar:/home/oz-mint/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.2/junit-jupiter-params-5.9.2.jar org.dockfx.demo.DockFX
 ```
 
 I added run configuration and intellij files just for future, configuring javafx in local is complex.
@@ -37,8 +37,37 @@ Features to be added in a to be determined future version:
 * A light docking library using no detachable windows
 
 ## Using the Library
-You can obtain a binary of the latest jar from the [releases](https://github.com/RobertBColton/DockFX/releases) page. The library itself includes a demo as the main class for testing purposes. This demo is always included for the time being as it is very small and not expected to get much bigger. An HTML readme file is included next to the jar but does not need to be distributed with the library. The library and the demo will also work regardless of whether the readme HTML file exists. You should be able to add the library to your class path and use it like any normal library.
+add the following to your pom.xml
+```xml
+<dependency>
+    <groupId>io.github.ozkanpakdil</groupId>
+    <artifactId>dockfx</artifactId>
+    <version>0.0.5</version>
+</dependency>
+```
+or to your build.gradle
+```groovy
+implementation 'io.github.ozkanpakdil:dockfx:0.0.5'
+```
+## Example
+```java
+import org.dockfx.DockNode;
+import org.dockfx.DockPane;
+import org.dockfx.DockPos;
+//.....
+        DockPane dockPane = new DockPane();
 
+        DockNode tabsDock = new DockNode(tabs, "Tabs Dock", new ImageView(dockImage));
+        tabsDock.setPrefSize(300, 100);
+        tabsDock.dock(dockPane, DockPos.TOP);
+        DockNode tableDock = new DockNode(tableView);
+        // let's disable our table from being undocked
+        tableDock.setDockTitleBar(null);
+        tableDock.setPrefSize(300, 100);
+        tableDock.dock(dockPane, DockPos.BOTTOM);
+        
+```
+check [here](./src/test/java/org/dockfx/demo/DockFX.java) for full example.
 ## Compiling from Source
 The project was originally written in the Eclipse IDE but is also configured for Apache Maven. The project will continue to facilitate development with both command line tools and the Eclipse IDE. Default icons are included from the [Calico icon set](https://github.com/enigma-dev/Calico-Icon) for the dock indicators and title bar.
 
