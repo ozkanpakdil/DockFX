@@ -42,7 +42,7 @@ add the following to your pom.xml
 <dependency>
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 </dependency>
 ```
 or to your build.gradle
