@@ -42,12 +42,12 @@ add the following to your pom.xml
 <dependency>
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
-    <version>0.0.6</version>
+    <version>0.0.7</version>
 </dependency>
 ```
 or to your build.gradle
 ```groovy
-implementation 'io.github.ozkanpakdil:dockfx:0.0.5'
+implementation 'io.github.ozkanpakdil:dockfx:0.0.7'
 ```
 ## Example
 ```java

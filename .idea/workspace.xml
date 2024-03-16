@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
+    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- code formatting">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/dockfx/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/dockfx/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/dockfx/demo/docknode.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/dockfx/docknode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +87,37 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="/tmp/qodana_output/qodana.sarif.json" />
+        <option name="reportGuid" value="d6223d67-cd9c-4aa1-907b-0e69d9665344" />
+        <option name="reportName" value="DockFX/qodana/2024-03-16" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="/tmp/qodana_output/qodana.sarif.json" reportGuid="d6223d67-cd9c-4aa1-907b-0e69d9665344" reportId="DockFX/qodana/2024-03-16" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org/dockfx" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.dockfx" />
@@ -133,7 +175,10 @@
       <workItem from="1710064962209" duration="257000" />
       <workItem from="1710065578907" duration="10000000" />
       <workItem from="1710077286356" duration="826000" />
-      <workItem from="1710078398472" duration="4085000" />
+      <workItem from="1710078398472" duration="7548000" />
+      <workItem from="1710184874067" duration="98000" />
+      <workItem from="1710186964791" duration="6374000" />
+      <workItem from="1710604919224" duration="1960000" />
     </task>
     <task id="LOCAL-00001" summary="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
       <option name="closed" value="true" />
@@ -151,7 +196,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710085228968</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- pom clean up">
+      <option name="closed" value="true" />
+      <created>1710086689600</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710086689600</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- documentation update">
+      <option name="closed" value="true" />
+      <created>1710182807644</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710182807644</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- pom clean up">
+      <option name="closed" value="true" />
+      <created>1710184941676</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710184941676</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +228,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test" />
-    <option name="LAST_COMMIT_MESSAGE" value="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test" />
+    <MESSAGE value="- documentation update" />
+    <MESSAGE value="- pom clean up" />
+    <MESSAGE value="- code formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="- code formatting" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

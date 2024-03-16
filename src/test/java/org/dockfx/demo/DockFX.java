@@ -19,6 +19,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import org.dockfx.DockNode;
 import org.dockfx.DockPane;
 import org.dockfx.DockPos;
@@ -26,8 +27,10 @@ import org.dockfx.DockPos;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.Random;
 
+@Slf4j
 public class DockFX extends Application {
 
     public static void main(String[] args) {
@@ -48,13 +51,13 @@ public class DockFX extends Application {
         try {
             htmlEditor.setHtmlText(new String(Files.readAllBytes(Paths.get("readme.html"))));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error reading readme.html", e);
         }
 
         // empty tabs ensure that dock node has its own background color when floating
         tabs.getTabs().addAll(new Tab("Tab 1", htmlEditor), new Tab("Tab 2"), new Tab("Tab 3"));
 
-        TableView<String> tableView = new TableView<String>();
+        TableView<String> tableView = new TableView<>();
         // this is why @SupressWarnings is used above
         // we don't care about the warnings because this is just a demonstration
         // for docks not the table view
@@ -62,7 +65,7 @@ public class DockFX extends Application {
                 new TableColumn<String, String>("B"), new TableColumn<String, String>("C"));
 
         // load an image to caption the dock nodes
-        Image dockImage = new Image(DockFX.class.getResource("docknode.png").toExternalForm());
+        Image dockImage = new Image(Objects.requireNonNull(DockFX.class.getResource("/org/dockfx/docknode.png")).toExternalForm());
 
         // create and dock some prototype dock nodes to the middle of the dock pane
         // the preferred sizes are used to specify the relative size of the node
@@ -130,23 +133,24 @@ public class DockFX extends Application {
         // this must be called after the primary stage is shown
         // https://bugs.openjdk.java.net/browse/JDK-8132900
         DockPane.initializeDefaultUserAgentStylesheet();
-
+        DockPane.getDefaultUserAgentStyleheet();
+        dockPane.getDockAreaStrokeTimeline().play();
         // TODO: after this feel free to apply your own global stylesheet using the StyleManager class
     }
 
     private TreeView<String> generateRandomTree() {
         // create a demonstration tree view to use as the contents for a dock node
-        TreeItem<String> root = new TreeItem<String>("Root");
-        TreeView<String> treeView = new TreeView<String>(root);
+        TreeItem<String> root = new TreeItem<>("Root");
+        TreeView<String> treeView = new TreeView<>(root);
         treeView.setShowRoot(false);
 
         // populate the prototype tree with some random nodes
         Random rand = new Random();
         for (int i = 4 + rand.nextInt(8); i > 0; i--) {
-            TreeItem<String> treeItem = new TreeItem<String>("Item " + i);
+            TreeItem<String> treeItem = new TreeItem<>("Item " + i);
             root.getChildren().add(treeItem);
             for (int j = 2 + rand.nextInt(4); j > 0; j--) {
-                TreeItem<String> childItem = new TreeItem<String>("Child " + j);
+                TreeItem<String> childItem = new TreeItem<>("Child " + j);
                 treeItem.getChildren().add(childItem);
             }
         }

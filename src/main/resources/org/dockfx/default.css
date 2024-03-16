@@ -68,39 +68,39 @@
 
 /* Set the icons for the indicator buttons here. */
 .dock-center {
-  -fx-graphic: url(center.png);
+  -fx-graphic: url(/org/dockfx/center.png);
 }
 
 .dock-top {
-  -fx-graphic: url(top.png);
+  -fx-graphic: url(/org/dockfx/top.png);
 }
 
 .dock-right {
-  -fx-graphic: url(right.png);
+  -fx-graphic: url(/org/dockfx/right.png);
 }
 
 .dock-bottom {
-  -fx-graphic: url(bottom.png);
+  -fx-graphic: url(/org/dockfx/bottom.png);
 }
 
 .dock-left {
-  -fx-graphic: url(left.png);
+  -fx-graphic: url(/org/dockfx/left.png);
 }
 
 .dock-top-root {
-  -fx-graphic: url(top.png);
+  -fx-graphic: url(/org/dockfx/top.png);
 }
 
 .dock-right-root {
-  -fx-graphic: url(right.png);
+  -fx-graphic: url(/org/dockfx/right.png);
 }
 
 .dock-bottom-root {
-  -fx-graphic: url(bottom.png);
+  -fx-graphic: url(/org/dockfx/bottom.png);
 }
 
 .dock-left-root {
-  -fx-graphic: url(left.png);
+  -fx-graphic: url(/org/dockfx/left.png);
 }
 
 /*******************************************************************************
@@ -136,7 +136,7 @@
 }
 
 .dock-title-label {
-  -fx-graphic: url(docknode.png);
+  -fx-graphic: url(/org/dockfx/docknode.png);
   -fx-padding: 0 0 3 0;
   -fx-text-fill: -fx-text-base-color;
   -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.2), 0,0,0,1 );
@@ -155,17 +155,17 @@
 
 /* Set the icons for the dock title bar's buttons here. */
 .dock-state-button {
-  -fx-graphic: url(restore.png);
+  -fx-graphic: url(/org/dockfx/restore.png);
 }
 
 .dock-node:floating .dock-state-button {
-  -fx-graphic: url(maximize.png);
+  -fx-graphic: url(/org/dockfx/maximize.png);
 }
 
 .dock-node:maximized .dock-state-button {
-  -fx-graphic: url(restore.png);
+  -fx-graphic: url(/org/dockfx/restore.png);
 }
 
 .dock-close-button {
-  -fx-graphic: url(close.png);
+  -fx-graphic: url(/org/dockfx/close.png);
 }
