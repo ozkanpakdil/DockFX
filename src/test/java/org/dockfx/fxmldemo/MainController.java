@@ -1,6 +1,5 @@
 package org.dockfx.fxmldemo;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import org.dockfx.DockNode;

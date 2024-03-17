@@ -7,16 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- com.sun.javafx imports cleared.&#10;- module info added for java module management">
+    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- css was missing in floating, that is fixed now&#10;- version 0.0.9 and readme updated">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/FxmlDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/FxmlDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +103,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/dockfx" />
       <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/dockfx" />
     </key>
@@ -112,7 +111,7 @@
       <recent name="org.dockfx" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FxmlDemo">
+  <component name="RunManager" selected="Application.DockFX">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="DockFX" />
       <working_directory value="$PROJECT_DIR$" />
@@ -175,7 +174,7 @@
       <workItem from="1710608602875" duration="3554000" />
       <workItem from="1710612389138" duration="5267000" />
       <workItem from="1710619323809" duration="13593000" />
-      <workItem from="1710636947075" duration="18361000" />
+      <workItem from="1710636947075" duration="20692000" />
     </task>
     <task id="LOCAL-00001" summary="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
       <option name="closed" value="true" />
@@ -249,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710674285541</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- css was missing in floating, that is fixed now&#10;- version 0.0.9 and readme updated">
+      <option name="closed" value="true" />
+      <created>1710688164573</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710688164573</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +269,8 @@
     <MESSAGE value="- code formatting" />
     <MESSAGE value="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML" />
     <MESSAGE value="- com.sun.javafx imports cleared.&#10;- module info added for java module management" />
-    <option name="LAST_COMMIT_MESSAGE" value="- com.sun.javafx imports cleared.&#10;- module info added for java module management" />
+    <MESSAGE value="- css was missing in floating, that is fixed now&#10;- version 0.0.9 and readme updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="- css was missing in floating, that is fixed now&#10;- version 0.0.9 and readme updated" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -272,7 +280,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java</url>
-          <line>33</line>
+          <line>32</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
