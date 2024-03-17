@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.*?>
+<?import org.dockfx.DockNode?>
+<?import org.dockfx.DockPane?>
+<StackPane fx:id="topPane" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.dockfx.fxmldemo.MainController">
+    <VBox fx:id="mainBox" prefHeight="600" prefWidth="800">
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="write something to debug console" onAction="#someAction">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="Enable debug window" onAction="#openDebugWindow">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <SeparatorMenuItem/>
+                <MenuItem onAction="#menuFileExit" text="Exit">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="ANY" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+            </Menu>
+            <Menu text="Edit" styleClass="menuEdit">
+                <MenuItem text="Copy"/>
+                <MenuItem text="Cut"/>
+                <MenuItem text="Paste"/>
+                <MenuItem text="Settings" styleClass="menuSettings">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="S" control="DOWN" meta="UP" shift="ANY" shortcut="ANY"/>
+                    </accelerator>
+                </MenuItem>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem disable="true" text="Search"/>
+                <MenuItem text="Online Manual" visible="false"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="About"/>
+            </Menu>
+        </MenuBar>
+        <DockPane fx:id="dockPaneMain" VBox.vgrow="ALWAYS">
+            <DockNode fx:id="mainNode" dockPosition="CENTER" VBox.vgrow="ALWAYS">
+                <contents>
+                    <AnchorPane prefHeight="600" prefWidth="800" VBox.vgrow="ALWAYS">
+                        <SplitPane dividerPositions="0.25" prefHeight="372.0" prefWidth="800.0"
+                                   AnchorPane.bottomAnchor="0.0"
+                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <AnchorPane minWidth="200.0" prefWidth="332.0" maxWidth="300">
+                                <TreeView fx:id="treePaths" layoutX="98.0" layoutY="79.0"
+                                          prefWidth="200.0" styleClass="treePaths" AnchorPane.bottomAnchor="0.0"
+                                          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                          AnchorPane.topAnchor="0.0"/>
+                            </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                <TabPane fx:id="tabRequests" maxHeight="-Infinity" maxWidth="-Infinity"
+                                         minHeight="-Infinity"
+                                         minWidth="-Infinity"
+                                         prefHeight="370.0" prefWidth="396.0"
+                                         AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                         AnchorPane.rightAnchor="0.0"
+                                         AnchorPane.topAnchor="0.0">
+                                </TabPane>
+                            </AnchorPane>
+                        </SplitPane>
+                    </AnchorPane>
+                </contents>
+            </DockNode>
+            <DockNode title="Debug" fx:id="debugDockNode" dockPosition="BOTTOM">
+                <contents>
+                    <TextArea fx:id="console" layoutX="0.0" layoutY="343.0" prefHeight="200.0" prefWidth="-Infinity"
+                              styleClass="debugWindowText" wrapText="true"/>
+                </contents>
+            </DockNode>
+        </DockPane>
+    </VBox>
+</StackPane>

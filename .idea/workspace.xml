@@ -7,22 +7,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- code formatting">
+    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML">
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/FxmlDemo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/FxmlDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/dockfx/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/dockfx/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/dockfx/demo/docknode.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/dockfx/docknode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +39,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,6 +72,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.DockFX.executor": "Run",
+    "Application.FxmlDemo.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -82,6 +83,7 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/home/oz-mint/Downloads/DockFX/src/test/java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,35 +97,27 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="/tmp/qodana_output/qodana.sarif.json" />
-        <option name="reportGuid" value="d6223d67-cd9c-4aa1-907b-0e69d9665344" />
-        <option name="reportName" value="DockFX/qodana/2024-03-16" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="/tmp/qodana_output/qodana.sarif.json" reportGuid="d6223d67-cd9c-4aa1-907b-0e69d9665344" reportId="DockFX/qodana/2024-03-16" />
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.dockfx" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/dockfx" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.dockfx" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.DockFX">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="DockFX" />
       <working_directory value="$PROJECT_DIR$" />
@@ -156,6 +150,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DockFX" />
+      <item itemvalue="Application.FxmlDemo" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -178,7 +176,10 @@
       <workItem from="1710078398472" duration="7548000" />
       <workItem from="1710184874067" duration="98000" />
       <workItem from="1710186964791" duration="6374000" />
-      <workItem from="1710604919224" duration="1960000" />
+      <workItem from="1710604919224" duration="2405000" />
+      <workItem from="1710608602875" duration="3554000" />
+      <workItem from="1710612389138" duration="5267000" />
+      <workItem from="1710619323809" duration="12703000" />
     </task>
     <task id="LOCAL-00001" summary="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
       <option name="closed" value="true" />
@@ -220,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710184941676</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- code formatting">
+      <option name="closed" value="true" />
+      <created>1710607177827</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710607177827</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- code formatting">
+      <option name="closed" value="true" />
+      <created>1710607214154</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710607214154</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,9 +248,21 @@
     <MESSAGE value="- documentation update" />
     <MESSAGE value="- pom clean up" />
     <MESSAGE value="- code formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="- code formatting" />
+    <MESSAGE value="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML" />
+    <option name="LAST_COMMIT_MESSAGE" value="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

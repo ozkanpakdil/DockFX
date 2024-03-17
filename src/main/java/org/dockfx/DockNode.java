@@ -12,22 +12,31 @@ package org.dockfx;
 import javafx.beans.property.*;
 import javafx.css.PseudoClass;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Objects;
 
 /**
  * Base class for a dock node that provides the layout of the content along with a title bar and a
@@ -37,6 +46,7 @@ import lombok.Setter;
  * @since DockFX 0.1
  */
 @NoArgsConstructor
+@Slf4j
 public class DockNode extends VBox implements EventHandler<MouseEvent> {
     /**
      * CSS pseudo class selector representing whether this node is currently floating.
@@ -53,10 +63,8 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
     /**
      * The style this dock node should use on its stage when set to floating.
      * -- SETTER --
-     *  The stage style that will be used when the dock node is floating. This must be set prior to
-     *  setting the dock node to floating.
-     *
-
+     * The stage style that will be used when the dock node is floating. This must be set prior to
+     * setting the dock node to floating.
      */
     @Setter
     private StageStyle stageStyle = StageStyle.TRANSPARENT;
@@ -80,6 +88,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
      * The dock pane this dock node belongs to when not floating.
      */
     private DockPane dockPane;
+
     /**
      * Boolean property maintaining whether this node is currently maximized.
      * {@code @defaultValue} false
@@ -130,7 +139,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
             return "maximized";
         }
     };
-    private final ObjectProperty<Node> graphicProperty = new SimpleObjectProperty<>() {
+    private final ObjectProperty<Node> graphicProperty = new SimpleObjectProperty<>(new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/org/dockfx/docknode.png")).toExternalForm()))) {
         @Override
         public String getName() {
             return "graphic";
@@ -160,6 +169,12 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
         @Override
         public String getName() {
             return "floating";
+        }
+    };
+    private final BooleanProperty initializedProperty = new SimpleBooleanProperty(false) {
+        @Override
+        public String getName() {
+            return "initialized";
         }
     };
     private final BooleanProperty floatableProperty = new SimpleBooleanProperty(true) {
@@ -208,46 +223,10 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
     private boolean sizeWest = false, sizeEast = false, sizeNorth = false, sizeSouth = false;
 
     /**
-     * Creates a default DockNode with a default title bar and layout.
-     *
-     * @param contents The contents of the dock node which may be a tree or another scene graph node.
-     * @param title    The caption title of this dock node which maintains bidirectional state with the
-     *                 title bar and stage.
-     * @param graphic  The caption graphic of this dock node which maintains bidirectional state with
-     *                 the title bar and stage.
+     * The position of the dock node relative to the dock pane.
      */
-    public DockNode(Node contents, String title, Node graphic) {
-        this.titleProperty.setValue(title);
-        this.graphicProperty.setValue(graphic);
-        this.contents = contents;
-
-        dockTitleBar = new DockTitleBar(this);
-
-        getChildren().addAll(dockTitleBar, contents);
-        VBox.setVgrow(contents, Priority.ALWAYS);
-
-        this.getStyleClass().add("dock-node");
-    }
-
-    /**
-     * Creates a default DockNode with a default title bar and layout.
-     *
-     * @param contents The contents of the dock node which may be a tree or another scene graph node.
-     * @param title    The caption title of this dock node which maintains bidirectional state with the
-     *                 title bar and stage.
-     */
-    public DockNode(Node contents, String title) {
-        this(contents, title, null);
-    }
-
-    /**
-     * Creates a default DockNode with a default title bar and layout.
-     *
-     * @param contents The contents of the dock node which may be a tree or another scene graph node.
-     */
-    public DockNode(Node contents) {
-        this(contents, null, null);
-    }
+    @Getter
+    private DockPosition dockPosition;
 
     /**
      * Whether the node is currently floating.
@@ -434,12 +413,13 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
         if (getChildren() != null && getChildren().indexOf(this.contents) > 0)
             getChildren().set(getChildren().indexOf(this.contents), contents);
         this.contents = contents;
+        initMe();
     }
 
     /**
      * Object property maintaining bidirectional state of the caption graphic for this node with the
      * dock title bar or stage.
-     *
+     * <p>
      * {@code @defaultValue} null
      */
     public final ObjectProperty<Node> graphicProperty() {
@@ -452,6 +432,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
 
     public final void setGraphic(Node graphic) {
         this.graphicProperty.setValue(graphic);
+        initMe();
     }
 
     /**
@@ -470,6 +451,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
 
     public final void setTitle(String title) {
         this.titleProperty.setValue(title);
+        initMe();
     }
 
     /**
@@ -519,7 +501,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
 
     /**
      * Boolean property maintaining whether this node is currently floatable.
-     *
+     * <p>
      * {@code @defaultValue} true
      */
     public final BooleanProperty floatableProperty() {
@@ -609,32 +591,48 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
     /**
      * Dock this node into a dock pane.
      *
-     * @param dockPane The dock pane to dock this node into.
-     * @param dockPos  The docking position relative to the sibling of the dock pane.
-     * @param sibling  The sibling node to dock this node relative to.
+     * @param dockPane     The dock pane to dock this node into.
+     * @param dockPosition The docking position relative to the sibling of the dock pane.
+     * @param sibling      The sibling node to dock this node relative to.
      */
-    public void dock(DockPane dockPane, DockPos dockPos, Node sibling) {
-        dockImpl(dockPane);
-        dockPane.dock(this, dockPos, sibling);
+    void dock(DockPane dockPane, DockPosition dockPosition, Node sibling) {
+        setDockPane(dockPane);
+        setDockPosition(dockPosition);
+        dockPane.dock(this, getDockPosition(), sibling);
     }
 
     /**
      * Dock this node into a dock pane.
      *
-     * @param dockPane The dock pane to dock this node into.
-     * @param dockPos  The docking position relative to the sibling of the dock pane.
+     * @param dockPane     The dock pane to dock this node into.
+     * @param dockPosition The docking position relative to the sibling of the dock pane.
      */
-    public void dock(DockPane dockPane, DockPos dockPos) {
-        dockImpl(dockPane);
-        dockPane.dock(this, dockPos);
+    void dock(DockPane dockPane, DockPosition dockPosition) {
+        dockPane.dock(this, getDockPosition());
     }
 
-    private void dockImpl(DockPane dockPane) {
+    public void setDockPosition(DockPosition dockPos) {
+        dockPosition = dockPos;
+        initMe();
+    }
+
+    public void setDockPane(DockPane dockPane) {
         if (isFloating()) {
             setFloating(false);
         }
         this.dockPane = dockPane;
         this.dockedProperty.set(true);
+        initMe();
+    }
+
+    private void initMe() {
+        if (!initializedProperty.get()
+                && dockPane != null
+                && dockPosition != null
+                && contents != null) {
+            initializedProperty.set(true);
+            initializeDockNode(contents, titleProperty.get(), graphicProperty.get());
+        }
     }
 
     /**
@@ -756,5 +754,66 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
                 event.consume();
             }
         }
+    }
+
+    /**
+     * Sets DockNodes contents, title and title bar graphic
+     *
+     * @param contents The contents of the dock node which may be a tree or another scene graph node.
+     * @param title    The caption title of this dock node which maintains bidirectional state with the
+     *                 title bar and stage.
+     * @param graphic  The caption title of this dock node which maintains bidirectional state with the
+     *                 title bar and stage.
+     */
+    private void initializeDockNode(Node contents, String title, Node graphic) {
+        if (contents == null) {
+            log.warn("contents is null, can not draw without contents");
+            return;
+        }
+        if (dockPosition == null) {
+            log.warn("dockPosition is null, can not draw without dockPosition");
+            return;
+        }
+        if (dockPane == null) {
+            log.warn("dockPane is null, can not draw without dockPane");
+            return;
+        }
+        if (dockTitleBar == null) {
+            log.warn("dockTitleBar is null, this can not be moved title:{}", titleProperty);
+        }
+        this.titleProperty.setValue(title);
+        this.graphicProperty.setValue(graphic);
+        this.contents = contents;
+
+        if (!"Dock".equals(title)) {
+            dockTitleBar = new DockTitleBar(this);
+        } else {
+            log.warn("title is default value, not creating new title bar. this is the main central window,{}", contents);
+        }
+        if (dockTitleBar != null)
+            getChildren().addAll(dockTitleBar, contents);
+        else
+            getChildren().add(contents);
+        VBox.setVgrow(contents, Priority.ALWAYS);
+
+        this.getStyleClass().add("dock-node");
+        dock(dockPane, dockPosition);
+    }
+
+    /**
+     * Loads Node from fxml file located at FXMLPath and returns it.
+     *
+     * @param FXMLPath Path to fxml file.
+     * @return Node loaded from fxml file or StackPane with Label with error message.
+     */
+    private static FXMLLoader loadNode(String FXMLPath) {
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            loader.load(DockNode.class.getResourceAsStream(FXMLPath));
+        } catch (Exception e) {
+            e.printStackTrace();
+            loader.setRoot(new StackPane(new Label("Could not load FXML file")));
+        }
+        return loader;
     }
 }

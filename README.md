@@ -42,30 +42,42 @@ add the following to your pom.xml
 <dependency>
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
 </dependency>
 ```
 or to your build.gradle
 ```groovy
-implementation 'io.github.ozkanpakdil:dockfx:0.0.7'
+implementation 'io.github.ozkanpakdil:dockfx:0.0.8'
 ```
 ## Example
+
 ```java
 import org.dockfx.DockNode;
 import org.dockfx.DockPane;
-import org.dockfx.DockPos;
+import org.dockfx.DockPosition;
 //.....
-        DockPane dockPane = new DockPane();
+DockPane dockPane = new DockPane();
 
-        DockNode tabsDock = new DockNode(tabs, "Tabs Dock", new ImageView(dockImage));
-        tabsDock.setPrefSize(300, 100);
-        tabsDock.dock(dockPane, DockPos.TOP);
-        DockNode tableDock = new DockNode(tableView);
-        // let's disable our table from being undocked
-        tableDock.setDockTitleBar(null);
-        tableDock.setPrefSize(300, 100);
-        tableDock.dock(dockPane, DockPos.BOTTOM);
-        
+DockNode tabsDock = new DockNode(tabs, "Tabs Dock", new ImageView(dockImage));
+        tabsDock.
+
+setPrefSize(300,100);
+        tabsDock.
+
+dock(dockPane, DockPosition.TOP);
+
+DockNode tableDock = new DockNode(tableView);
+// let's disable our table from being undocked
+        tableDock.
+
+setDockTitleBar(null);
+        tableDock.
+
+setPrefSize(300,100);
+        tableDock.
+
+dock(dockPane, DockPosition.BOTTOM);
+
 ```
 check [here](./src/test/java/org/dockfx/demo/DockFX.java) for full example.
 ## Compiling from Source

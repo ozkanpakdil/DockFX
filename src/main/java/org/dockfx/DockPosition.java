@@ -14,7 +14,7 @@ package org.dockfx;
  *
  * @since DockFX 0.1
  */
-public enum DockPos {
+public enum DockPosition {
     /**
      * Dock to the center by stacking inside a TabPane. This should be considered the equivalent of
      * null.

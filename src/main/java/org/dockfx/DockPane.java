@@ -41,7 +41,8 @@ import java.util.Stack;
  * the center in a TabPane will be added in a future release. For now the DockPane uses the relative
  * sizes of the dock nodes and lays them out in a tree of SplitPanes.
  *
- * @since DockFX 0.1
+ * @version 0.0.9
+ * @since 0.0.1
  */
 public class DockPane extends StackPane implements EventHandler<DockEvent> {
     /**
@@ -72,7 +73,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
     /**
      * The docking position of the current dock indicator button if any is selected.
      */
-    private DockPos dockPosDrag;
+    private DockPosition dockPositionDrag;
 
     /**
      * The docking area shape with a dotted animated border on the indicator overlay popup.
@@ -110,7 +111,6 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
      */
     private final ObservableMap<Node, DockNodeEventHandler> dockNodeEventFilters =
             FXCollections.observableHashMap();
-
 
     /**
      * Creates a new DockPane adding event handlers for dock events and creating the indicator
@@ -153,31 +153,31 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
         dockAreaStrokeTimeline.getKeyFrames().add(kf);
         dockAreaStrokeTimeline.play();
 
-        DockPosButton dockCenter = new DockPosButton(false, DockPos.CENTER);
+        DockPosButton dockCenter = new DockPosButton(false, DockPosition.CENTER);
         dockCenter.getStyleClass().add("dock-center");
 
-        DockPosButton dockTop = new DockPosButton(false, DockPos.TOP);
+        DockPosButton dockTop = new DockPosButton(false, DockPosition.TOP);
         dockTop.getStyleClass().add("dock-top");
-        DockPosButton dockRight = new DockPosButton(false, DockPos.RIGHT);
+        DockPosButton dockRight = new DockPosButton(false, DockPosition.RIGHT);
         dockRight.getStyleClass().add("dock-right");
-        DockPosButton dockBottom = new DockPosButton(false, DockPos.BOTTOM);
+        DockPosButton dockBottom = new DockPosButton(false, DockPosition.BOTTOM);
         dockBottom.getStyleClass().add("dock-bottom");
-        DockPosButton dockLeft = new DockPosButton(false, DockPos.LEFT);
+        DockPosButton dockLeft = new DockPosButton(false, DockPosition.LEFT);
         dockLeft.getStyleClass().add("dock-left");
 
-        DockPosButton dockTopRoot = new DockPosButton(true, DockPos.TOP);
+        DockPosButton dockTopRoot = new DockPosButton(true, DockPosition.TOP);
         StackPane.setAlignment(dockTopRoot, Pos.TOP_CENTER);
         dockTopRoot.getStyleClass().add("dock-top-root");
 
-        DockPosButton dockRightRoot = new DockPosButton(true, DockPos.RIGHT);
+        DockPosButton dockRightRoot = new DockPosButton(true, DockPosition.RIGHT);
         StackPane.setAlignment(dockRightRoot, Pos.CENTER_RIGHT);
         dockRightRoot.getStyleClass().add("dock-right-root");
 
-        DockPosButton dockBottomRoot = new DockPosButton(true, DockPos.BOTTOM);
+        DockPosButton dockBottomRoot = new DockPosButton(true, DockPosition.BOTTOM);
         StackPane.setAlignment(dockBottomRoot, Pos.BOTTOM_CENTER);
         dockBottomRoot.getStyleClass().add("dock-bottom-root");
 
-        DockPosButton dockLeftRoot = new DockPosButton(true, DockPos.LEFT);
+        DockPosButton dockLeftRoot = new DockPosButton(true, DockPosition.LEFT);
         StackPane.setAlignment(dockLeftRoot, Pos.CENTER_LEFT);
         dockLeftRoot.getStyleClass().add("dock-left-root");
 
@@ -237,11 +237,11 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
      * layout. This is used to relatively position the dock nodes to other nodes given their preferred
      * size.
      *
-     * @param node    The node that is to be docked into this dock pane.
-     * @param dockPos The docking position of the node relative to the sibling.
-     * @param sibling The sibling of this node in the layout.
+     * @param node         The node that is to be docked into this dock pane.
+     * @param dockPosition The docking position of the node relative to the sibling.
+     * @param sibling      The sibling of this node in the layout.
      */
-    public void dock(Node node, DockPos dockPos, Node sibling) {
+    public void dock(Node node, DockPosition dockPosition, Node sibling) {
         DockNodeEventHandler dockNodeEventHandler = new DockNodeEventHandler(node);
         dockNodeEventFilters.put(node, dockNodeEventHandler);
         node.addEventFilter(DockEvent.DOCK_OVER, dockNodeEventHandler);
@@ -279,7 +279,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
             }
         }
 
-        Orientation requestedOrientation = (dockPos == DockPos.LEFT || dockPos == DockPos.RIGHT)
+        Orientation requestedOrientation = (dockPosition == DockPosition.LEFT || dockPosition == DockPosition.RIGHT)
                 ? Orientation.HORIZONTAL : Orientation.VERTICAL;
 
         // if the orientation is different then reparent the split pane
@@ -317,7 +317,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
             }
         }
 
-        if (dockPos == DockPos.LEFT || dockPos == DockPos.TOP) {
+        if (dockPosition == DockPosition.LEFT || dockPosition == DockPosition.TOP) {
             int relativeIndex = 0;
             if (sibling != null && sibling != root) {
                 relativeIndex = splitItems.indexOf(sibling);
@@ -334,7 +334,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
                             node.prefHeight(0) / (magnitude + node.prefHeight(0)));
                 }
             }
-        } else if (dockPos == DockPos.RIGHT || dockPos == DockPos.BOTTOM) {
+        } else if (dockPosition == DockPosition.RIGHT || dockPosition == DockPosition.BOTTOM) {
             int relativeIndex = splitItems.size();
             if (sibling != null && sibling != root) {
                 relativeIndex = splitItems.indexOf(sibling) + 1;
@@ -359,11 +359,11 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
      * layout. This is used to relatively position the dock nodes to other nodes given their preferred
      * size.
      *
-     * @param node    The node that is to be docked into this dock pane.
-     * @param dockPos The docking position of the node relative to the sibling.
+     * @param node         The node that is to be docked into this dock pane.
+     * @param dockPosition The docking position of the node relative to the sibling.
      */
-    public void dock(Node node, DockPos dockPos) {
-        dock(node, dockPos, root);
+    public void dock(Node node, DockPosition dockPosition) {
+        dock(node, dockPosition, root);
     }
 
     /**
@@ -415,7 +415,6 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
 
                         }
                     }
-
                     return;
                 } else if (children.get(i) instanceof Parent) {
                     findStack.push((Parent) children.get(i));
@@ -423,7 +422,6 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
             }
         }
     }
-
     @Override
     public void handle(DockEvent event) {
         if (event.getEventType() == DockEvent.DOCK_ENTER) {
@@ -434,13 +432,13 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
         } else if (event.getEventType() == DockEvent.DOCK_OVER) {
             this.receivedEnter = false;
 
-            dockPosDrag = null;
+            dockPositionDrag = null;
             dockAreaDrag = dockNodeDrag;
 
             for (DockPosButton dockIndicatorButton : dockPosButtons) {
                 if (dockIndicatorButton
                         .contains(dockIndicatorButton.screenToLocal(event.getScreenX(), event.getScreenY()))) {
-                    dockPosDrag = dockIndicatorButton.getDockPos();
+                    dockPositionDrag = dockIndicatorButton.getDockPos();
                     if (dockIndicatorButton.isDockRoot()) {
                         dockAreaDrag = root;
                     }
@@ -451,29 +449,29 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
                 }
             }
 
-            if (dockPosDrag != null) {
+            if (dockPositionDrag != null) {
                 Point2D originToScene = dockAreaDrag.localToScene(0, 0).subtract(this.localToScene(0, 0));
 
                 dockAreaIndicator.setVisible(true);
                 dockAreaIndicator.relocate(originToScene.getX(), originToScene.getY());
-                if (dockPosDrag == DockPos.RIGHT) {
+                if (dockPositionDrag == DockPosition.RIGHT) {
                     dockAreaIndicator.setTranslateX(dockAreaDrag.getLayoutBounds().getWidth() / 2);
                 } else {
                     dockAreaIndicator.setTranslateX(0);
                 }
 
-                if (dockPosDrag == DockPos.BOTTOM) {
+                if (dockPositionDrag == DockPosition.BOTTOM) {
                     dockAreaIndicator.setTranslateY(dockAreaDrag.getLayoutBounds().getHeight() / 2);
                 } else {
                     dockAreaIndicator.setTranslateY(0);
                 }
 
-                if (dockPosDrag == DockPos.LEFT || dockPosDrag == DockPos.RIGHT) {
+                if (dockPositionDrag == DockPosition.LEFT || dockPositionDrag == DockPosition.RIGHT) {
                     dockAreaIndicator.setWidth(dockAreaDrag.getLayoutBounds().getWidth() / 2);
                 } else {
                     dockAreaIndicator.setWidth(dockAreaDrag.getLayoutBounds().getWidth());
                 }
-                if (dockPosDrag == DockPos.TOP || dockPosDrag == DockPos.BOTTOM) {
+                if (dockPositionDrag == DockPosition.TOP || dockPositionDrag == DockPosition.BOTTOM) {
                     dockAreaIndicator.setHeight(dockAreaDrag.getLayoutBounds().getHeight() / 2);
                 } else {
                     dockAreaIndicator.setHeight(dockAreaDrag.getLayoutBounds().getHeight());
@@ -505,9 +503,9 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
         }
 
         if (event.getEventType() == DockEvent.DOCK_RELEASED && event.getContents() != null) {
-            if (dockPosDrag != null && dockIndicatorOverlay.isShowing()) {
+            if (dockPositionDrag != null && dockIndicatorOverlay.isShowing()) {
                 DockNode dockNode = (DockNode) event.getContents();
-                dockNode.dock(this, dockPosDrag, dockAreaDrag);
+                dockNode.dock(this, dockPositionDrag, dockAreaDrag);
             }
         }
 
@@ -535,15 +533,15 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
         /**
          * The docking position indicated by this button.
          */
-        private DockPos dockPos;
+        private DockPosition dockPosition;
 
         /**
          * Creates a new dock indicator button.
          */
-        public DockPosButton(boolean dockRoot, DockPos dockPos) {
+        public DockPosButton(boolean dockRoot, DockPosition dockPosition) {
             super();
             this.dockRoot = dockRoot;
-            this.dockPos = dockPos;
+            this.dockPosition = dockPosition;
         }
 
         /**
@@ -551,17 +549,17 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
          *
          * @return The docking position indicated by this button.
          */
-        public final DockPos getDockPos() {
-            return dockPos;
+        public final DockPosition getDockPos() {
+            return dockPosition;
         }
 
         /**
          * The docking position indicated by this button.
          *
-         * @param dockPos The docking position indicated by this button.
+         * @param dockPosition The docking position indicated by this button.
          */
-        public final void setDockPos(DockPos dockPos) {
-            this.dockPos = dockPos;
+        public final void setDockPos(DockPosition dockPosition) {
+            this.dockPosition = dockPosition;
         }
 
         /**

@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.dockfx.DockNode;
 import org.dockfx.DockPane;
-import org.dockfx.DockPos;
+import org.dockfx.DockPosition;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -77,14 +77,21 @@ public class DockFX extends Application {
         // they will have 300 / 100 + 300 (400) or 75% of their previous width
         // after both the left and right node's are docked the center docks end up with 50% of the width
 
-        DockNode tabsDock = new DockNode(tabs, "Tabs Dock", new ImageView(dockImage));
+        DockNode tabsDock = new DockNode();
         tabsDock.setPrefSize(300, 100);
-        tabsDock.dock(dockPane, DockPos.TOP);
-        DockNode tableDock = new DockNode(tableView);
+        tabsDock.setTitle("Tabs Dock");
+        tabsDock.setGraphic(new ImageView(new Image(Objects.requireNonNull(DockFX.class.getResource("/org/dockfx/docknode.png")).toExternalForm())));
+        tabsDock.setContents(tabs);
+        tabsDock.setDockPosition(DockPosition.TOP);
+        tabsDock.setDockPane(dockPane);
+
+        DockNode tableDock = new DockNode();
+        tableDock.setContents(tableView);
         // let's disable our table from being undocked
         tableDock.setDockTitleBar(null);
         tableDock.setPrefSize(300, 100);
-        tableDock.dock(dockPane, DockPos.BOTTOM);
+        tableDock.setDockPosition(DockPosition.BOTTOM);
+        tableDock.setDockPane(dockPane);
 
         final Menu menu1 = new Menu("File");
         final Menu menu2 = new Menu("Options");
@@ -117,12 +124,20 @@ public class DockFX extends Application {
 
         // can be created and docked before or after the scene is created
         // and the stage is shown
-        DockNode treeDock = new DockNode(generateRandomTree(), "Tree Dock", new ImageView(dockImage));
+        DockNode treeDock = new DockNode();
+        treeDock.setContents(generateRandomTree());
         treeDock.setPrefSize(100, 100);
-        treeDock.dock(dockPane, DockPos.LEFT);
-        treeDock = new DockNode(generateRandomTree(), "Tree Dock", new ImageView(dockImage));
+        treeDock.setTitle("Tree dock 1");
+        treeDock.setGraphic(new ImageView(dockImage));
+        treeDock.setDockPosition(DockPosition.LEFT);
+        treeDock.setDockPane(dockPane);
+        treeDock = new DockNode();
+        treeDock.setContents(generateRandomTree());
+        treeDock.setTitle("Tree dock 2");
+        treeDock.setGraphic(new ImageView(dockImage));
         treeDock.setPrefSize(100, 100);
-        treeDock.dock(dockPane, DockPos.RIGHT);
+        treeDock.setDockPosition(DockPosition.RIGHT);
+        treeDock.setDockPane(dockPane);
 
         // test the look and feel with both Caspian and Modena
         Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
