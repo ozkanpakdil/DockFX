@@ -199,9 +199,9 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
         @Override
         protected void invalidated() {
             if (get()) {
-                if (dockTitleBar != null) {
-                    dockTitleBar.setVisible(true);
-                    dockTitleBar.setManaged(true);
+                if (getDockTitleBar() != null) {
+                    getDockTitleBar().setVisible(true);
+                    getDockTitleBar().setManaged(true);
                 }
             }
 
@@ -243,8 +243,8 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
             Point2D floatScreen = this.localToScreen(0, 0);
 
             // setup window stage
-            dockTitleBar.setVisible(this.isCustomTitleBar());
-            dockTitleBar.setManaged(this.isCustomTitleBar());
+            getDockTitleBar().setVisible(this.isCustomTitleBar());
+            getDockTitleBar().setManaged(this.isCustomTitleBar());
 
             // apply the floating property so we can get its padding size
             // while it is floating to offset it by the drop shadow
@@ -363,13 +363,13 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
      */
     public void setDockTitleBar(DockTitleBar dockTitleBar) {
         if (dockTitleBar != null) {
-            if (this.dockTitleBar != null) {
-                this.getChildren().set(this.getChildren().indexOf(this.dockTitleBar), dockTitleBar);
+            if (getDockTitleBar() != null) {
+                this.getChildren().set(this.getChildren().indexOf(getDockTitleBar()), dockTitleBar);
             } else {
                 this.getChildren().add(0, dockTitleBar);
             }
         } else {
-            this.getChildren().remove(this.dockTitleBar);
+            this.getChildren().remove(getDockTitleBar());
         }
 
         this.dockTitleBar = dockTitleBar;
@@ -471,8 +471,8 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
 
     public final void setUseCustomTitleBar(boolean useCustomTitleBar) {
         if (this.isFloating()) {
-            dockTitleBar.setVisible(useCustomTitleBar);
-            dockTitleBar.setManaged(useCustomTitleBar);
+            getDockTitleBar().setVisible(useCustomTitleBar);
+            getDockTitleBar().setManaged(useCustomTitleBar);
         }
         this.customTitleBarProperty.set(useCustomTitleBar);
     }
@@ -778,7 +778,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
             log.warn("dockPane is null, can not draw without dockPane");
             return;
         }
-        if (dockTitleBar == null) {
+        if (getDockTitleBar() == null) {
             log.warn("dockTitleBar is null, this can not be moved title:{}", titleProperty);
         }
         this.titleProperty.setValue(title);
@@ -790,14 +790,15 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
         } else {
             log.warn("title is default value, not creating new title bar. this is the main central window,{}", contents);
         }
-        if (dockTitleBar != null)
-            getChildren().addAll(dockTitleBar, contents);
+        if (getDockTitleBar() != null)
+            getChildren().addAll(getDockTitleBar(), contents);
         else
             getChildren().add(contents);
         VBox.setVgrow(contents, Priority.ALWAYS);
 
         this.getStyleClass().add("dock-node");
         dock(dockPane, dockPosition);
+        dockPane.initializeDefaultUserAgentStylesheet();
     }
 
     /**
@@ -806,7 +807,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
      * @param FXMLPath Path to fxml file.
      * @return Node loaded from fxml file or StackPane with Label with error message.
      */
-    private static FXMLLoader loadNode(String FXMLPath) {
+    private FXMLLoader loadNode(String FXMLPath) {
         FXMLLoader loader = new FXMLLoader();
         try {
             loader.load(DockNode.class.getResourceAsStream(FXMLPath));
@@ -814,6 +815,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
             e.printStackTrace();
             loader.setRoot(new StackPane(new Label("Could not load FXML file")));
         }
+        initMe();
         return loader;
     }
 }

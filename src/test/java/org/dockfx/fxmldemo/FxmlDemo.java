@@ -16,7 +16,5 @@ public class FxmlDemo extends Application {
         stage.setTitle("FXML Welcome");
         stage.setScene(new Scene(root, 800, 600));
         stage.show();
-        DockPane.initializeDefaultUserAgentStylesheet();
-        DockPane.getDefaultUserAgentStyleheet();
     }
 }

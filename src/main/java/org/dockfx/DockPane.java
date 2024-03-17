@@ -9,10 +9,10 @@
 
 package org.dockfx;
 
-import com.sun.javafx.css.StyleManager;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -30,6 +30,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
 import javafx.util.Duration;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,7 @@ import java.util.Stack;
  * @version 0.0.9
  * @since 0.0.1
  */
+@Slf4j
 public class DockPane extends StackPane implements EventHandler<DockEvent> {
     /**
      * Package-private internal list of all DockPanes for event mouse picking.
@@ -209,16 +211,18 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
      *
      * @return The URL of the default style sheet used by DockFX.
      */
-    public static String getDefaultUserAgentStyleheet() {
+    public String getDefaultUserAgentStylesheet() {
         return Objects.requireNonNull(DockPane.class.getResource("/org/dockfx/default.css")).toExternalForm();
     }
 
     /**
      * Helper function to add the default style sheet of DockFX to the user agent style sheets.
      */
-    public static void initializeDefaultUserAgentStylesheet() {
-        StyleManager.getInstance()
-                .addUserAgentStylesheet(Objects.requireNonNull(DockPane.class.getResource("/org/dockfx/default.css")).toExternalForm());
+    public void initializeDefaultUserAgentStylesheet() {
+        Platform.runLater(() -> {
+            if (getScene() != null && !getScene().getStylesheets().contains(getDefaultUserAgentStylesheet()))
+                getScene().getStylesheets().add(getDefaultUserAgentStylesheet());
+        });
     }
 
     /**
@@ -351,7 +355,6 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
                 }
             }
         }
-
     }
 
     /**
@@ -373,8 +376,10 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
      */
     public void undock(DockNode node) {
         DockNodeEventHandler dockNodeEventHandler = dockNodeEventFilters.get(node);
-        node.removeEventFilter(DockEvent.DOCK_OVER, dockNodeEventHandler);
-        dockNodeEventFilters.remove(node);
+        if (dockNodeEventHandler != null) {
+            node.removeEventFilter(DockEvent.DOCK_OVER, dockNodeEventHandler);
+            dockNodeEventFilters.remove(node);
+        }
 
         // depth first search to find the parent of the node
         Stack<Parent> findStack = new Stack<>();
@@ -422,6 +427,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
             }
         }
     }
+
     @Override
     public void handle(DockEvent event) {
         if (event.getEventType() == DockEvent.DOCK_ENTER) {

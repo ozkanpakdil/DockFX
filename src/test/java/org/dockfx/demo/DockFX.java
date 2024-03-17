@@ -147,9 +147,6 @@ public class DockFX extends Application {
         // using the style manager just as they can with internal JavaFX controls
         // this must be called after the primary stage is shown
         // https://bugs.openjdk.java.net/browse/JDK-8132900
-        DockPane.initializeDefaultUserAgentStylesheet();
-        DockPane.getDefaultUserAgentStyleheet();
-        dockPane.getDockAreaStrokeTimeline().play();
         // TODO: after this feel free to apply your own global stylesheet using the StyleManager class
     }
 
