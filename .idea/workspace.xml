@@ -7,13 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/FxmlDemo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/FxmlDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/main.fxml" afterDir="false" />
+    <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- com.sun.javafx imports cleared.&#10;- module info added for java module management">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -21,8 +16,7 @@
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +34,7 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -68,35 +63,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.DockFX.executor": "Run",
-    "Application.FxmlDemo.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/home/oz-mint/Downloads/DockFX/src/test/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.DockFX.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FxmlDemo.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/home/oz-mint/Downloads/DockFX/src/test/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="/tmp/qodana_output/qodana.sarif.json" reportGuid="d6223d67-cd9c-4aa1-907b-0e69d9665344" reportId="DockFX/qodana/2024-03-16" />
@@ -117,7 +112,7 @@
       <recent name="org.dockfx" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DockFX">
+  <component name="RunManager" selected="Application.FxmlDemo">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="DockFX" />
       <working_directory value="$PROJECT_DIR$" />
@@ -179,7 +174,8 @@
       <workItem from="1710604919224" duration="2405000" />
       <workItem from="1710608602875" duration="3554000" />
       <workItem from="1710612389138" duration="5267000" />
-      <workItem from="1710619323809" duration="12703000" />
+      <workItem from="1710619323809" duration="13593000" />
+      <workItem from="1710636947075" duration="18361000" />
     </task>
     <task id="LOCAL-00001" summary="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
       <option name="closed" value="true" />
@@ -237,7 +233,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710607214154</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML">
+      <option name="closed" value="true" />
+      <created>1710636162026</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710636162027</updated>
+    </task>
+    <task id="LOCAL-00009" summary="- com.sun.javafx imports cleared.&#10;- module info added for java module management">
+      <option name="closed" value="true" />
+      <created>1710674285541</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710674285541</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +261,8 @@
     <MESSAGE value="- pom clean up" />
     <MESSAGE value="- code formatting" />
     <MESSAGE value="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML" />
-    <option name="LAST_COMMIT_MESSAGE" value="- FXML use example added&#10;- some refactoring with names and make sure all works if the initialization from FXML" />
+    <MESSAGE value="- com.sun.javafx imports cleared.&#10;- module info added for java module management" />
+    <option name="LAST_COMMIT_MESSAGE" value="- com.sun.javafx imports cleared.&#10;- module info added for java module management" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -261,6 +274,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java</url>
           <line>33</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java</url>
+          <line>222</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

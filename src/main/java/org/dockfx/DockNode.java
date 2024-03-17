@@ -9,6 +9,7 @@
 
 package org.dockfx;
 
+import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.css.PseudoClass;
 import javafx.event.EventHandler;
@@ -258,11 +259,9 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
 
             stage = new Stage();
             stage.titleProperty().bind(titleProperty);
-            if (dockPane != null && dockPane.getScene() != null
-                    && dockPane.getScene().getWindow() != null) {
+            if (dockPane != null && dockPane.getScene() != null && dockPane.getScene().getWindow() != null) {
                 stage.initOwner(dockPane.getScene().getWindow());
             }
-
             stage.initStyle(stageStyle);
 
             // offset the new stage to cover exactly the area the dock was local to the scene
@@ -279,19 +278,21 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
                 stagePosition = stagePosition.add(translation);
             }
 
-            // the border pane allows the dock node to
-            // have a drop shadow effect on the border
-            // but also maintain the layout of contents
-            // such as a tab that has no content
+            // the border pane allows the dock node to have a drop shadow effect on the border
+            // but also maintain the layout of contents such as a tab that has no content
             borderPane = new BorderPane();
             borderPane.getStyleClass().add("dock-node-border");
             borderPane.setCenter(this);
 
             Scene scene = new Scene(borderPane);
 
-            // apply the border pane css so that we can get the insets and
-            // position the stage properly
-            borderPane.applyCss();
+            // apply the border pane css so that we can get the insets and position the stage properly
+            dockPane.initializeDefaultUserAgentStylesheet();
+            Platform.runLater(() -> {
+                if (scene != null && !scene.getStylesheets().contains(dockPane.getDefaultUserAgentStylesheet()))
+                    scene.getStylesheets().add(dockPane.getDefaultUserAgentStylesheet());
+                borderPane.applyCss();
+            });
             Insets insetsDelta = borderPane.getInsets();
 
             double insetsWidth = insetsDelta.getLeft() + insetsDelta.getRight();

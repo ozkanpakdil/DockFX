@@ -230,8 +230,7 @@ public class DockTitleBar extends HBox implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
         if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
-            if (dockNode.isFloating() && event.getClickCount() == 2
-                    && event.getButton() == MouseButton.PRIMARY) {
+            if (dockNode.isFloating() && event.getClickCount() == 2 && event.getButton() == MouseButton.PRIMARY) {
                 dockNode.setMaximized(!dockNode.isMaximized());
             } else {
                 // drag detected is used in place of mouse pressed so there is some threshold for the
@@ -285,8 +284,7 @@ public class DockTitleBar extends HBox implements EventHandler<MouseEvent> {
             dragging = true;
             event.consume();
         } else if (event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
-            if (dockNode.isFloating() && event.getClickCount() == 2
-                    && event.getButton() == MouseButton.PRIMARY) {
+            if (dockNode.isFloating() && event.getClickCount() == 2 && event.getButton() == MouseButton.PRIMARY) {
                 event.setDragDetect(false);
                 event.consume();
                 return;
@@ -382,10 +380,9 @@ public class DockTitleBar extends HBox implements EventHandler<MouseEvent> {
         /**
          * The number of times this task has been executed.
          * -- GETTER --
-         *  The number of times this task has been executed.
+         * The number of times this task has been executed.
          *
-         * @return The number of times this task has been executed.
-
+         * Holds the number of times this task has been executed.
          */
         protected int executions = 0;
 

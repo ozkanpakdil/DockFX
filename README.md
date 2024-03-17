@@ -42,14 +42,17 @@ add the following to your pom.xml
 <dependency>
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
 </dependency>
 ```
 or to your build.gradle
 ```groovy
-implementation 'io.github.ozkanpakdil:dockfx:0.0.8'
+implementation 'io.github.ozkanpakdil:dockfx:0.0.9'
 ```
 ## Example
+[fxml example](./src/test/resources/main.fxml) and [fxml controller](./src/test/java/org/dockfx/fxmldemo/MainController.java) and [application class](./src/test/java/org/dockfx/fxmldemo/FxmlDemo.java) are provided in the test folder.
+
+[java example](./src/test/java/org/dockfx/demo/DockFX.java) is provided in the test folder.
 
 ```java
 import org.dockfx.DockNode;

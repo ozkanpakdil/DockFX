@@ -192,7 +192,6 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
         dockPosIndicator.add(dockRight, 2, 1);
         dockPosIndicator.add(dockBottom, 1, 2);
         dockPosIndicator.add(dockLeft, 0, 1);
-        // dockPosIndicator.add(dockCenter, 1, 1);
 
         dockRootPane.getChildren().addAll(dockAreaIndicator, dockTopRoot, dockRightRoot, dockBottomRoot,
                 dockLeftRoot);
@@ -442,8 +441,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
             dockAreaDrag = dockNodeDrag;
 
             for (DockPosButton dockIndicatorButton : dockPosButtons) {
-                if (dockIndicatorButton
-                        .contains(dockIndicatorButton.screenToLocal(event.getScreenX(), event.getScreenY()))) {
+                if (dockIndicatorButton.contains(dockIndicatorButton.screenToLocal(event.getScreenX(), event.getScreenY()))) {
                     dockPositionDrag = dockIndicatorButton.getDockPos();
                     if (dockIndicatorButton.isDockRoot()) {
                         dockAreaDrag = root;
@@ -515,8 +513,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
             }
         }
 
-        if ((event.getEventType() == DockEvent.DOCK_EXIT && !this.receivedEnter)
-                || event.getEventType() == DockEvent.DOCK_RELEASED) {
+        if ((event.getEventType() == DockEvent.DOCK_EXIT && !this.receivedEnter) || event.getEventType() == DockEvent.DOCK_RELEASED) {
             if (dockIndicatorPopup.isShowing()) {
                 dockIndicatorOverlay.hide();
                 dockIndicatorPopup.hide();
@@ -528,7 +525,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
      * Base class for a dock indicator button that allows it to be displayed during a dock event and
      * continue to receive input.
      *
-     * @since DockFX 0.1
+     * @since 0.1
      */
     public static class DockPosButton extends Button {
         /**
@@ -596,7 +593,7 @@ public class DockPane extends StackPane implements EventHandler<DockEvent> {
      * listener when the dock node becomes detached. It is specifically used to monitor which dock
      * node in this dock pane's layout we are currently dragging over.
      *
-     * @since DockFX 0.1
+     * @since 0.1
      */
     private class DockNodeEventHandler implements EventHandler<DockEvent> {
         /**
