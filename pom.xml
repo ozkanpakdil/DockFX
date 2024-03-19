@@ -6,7 +6,7 @@
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <name>DockFX</name>
     <url>https://github.com/ozkanpakdil/DockFX.git</url>
     <description>A fully featured docking library for the JavaFX platform.</description>

@@ -1,4 +1,4 @@
-module dockfx {
+module org.dockfx {
     requires javafx.controls;
     requires javafx.graphics;
     requires javafx.fxml;

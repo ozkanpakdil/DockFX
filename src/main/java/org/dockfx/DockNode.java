@@ -134,7 +134,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
             return "maximized";
         }
     };
-    private final ObjectProperty<Node> graphicProperty = new SimpleObjectProperty<>(new ImageView(new Image(Objects.requireNonNull(getClass().getResource("/org/dockfx/docknode.png")).toExternalForm()))) {
+    private final ObjectProperty<Node> graphicProperty = new SimpleObjectProperty<>(new ImageView(new Image(Objects.requireNonNull(getClass().getResource("docknode.png")).toExternalForm()))) {
         @Override
         public String getName() {
             return "graphic";
