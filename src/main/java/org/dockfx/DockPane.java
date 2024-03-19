@@ -30,7 +30,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
 import javafx.util.Duration;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +41,10 @@ import java.util.Stack;
  * the center in a TabPane will be added in a future release. For now the DockPane uses the relative
  * sizes of the dock nodes and lays them out in a tree of SplitPanes.
  *
- * @version 0.0.9
  * @since 0.0.1
  */
-@Slf4j
 public class DockPane extends StackPane implements EventHandler<DockEvent> {
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DockPane.class);
     /**
      * Package-private internal list of all DockPanes for event mouse picking.
      */

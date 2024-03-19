@@ -10,11 +10,15 @@
     <list default="true" id="001efabc-6851-4fb8-8a55-3b26d5375ac9" name="Changes" comment="- css was missing in floating, that is fixed now&#10;- version 0.0.9 and readme updated">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/FxmlDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/FxmlDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/fxmldemo/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dockfx/DockTitleBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/dockfx/demo/DockFX.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +115,7 @@
       <recent name="org.dockfx" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DockFX">
+  <component name="RunManager" selected="Application.FxmlDemo">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="DockFX" />
       <working_directory value="$PROJECT_DIR$" />
@@ -174,7 +178,8 @@
       <workItem from="1710608602875" duration="3554000" />
       <workItem from="1710612389138" duration="5267000" />
       <workItem from="1710619323809" duration="13593000" />
-      <workItem from="1710636947075" duration="20692000" />
+      <workItem from="1710636947075" duration="21015000" />
+      <workItem from="1710881521066" duration="1953000" />
     </task>
     <task id="LOCAL-00001" summary="- javafx moved to 21&#10;- java moved to 17&#10;- demo moved to test">
       <option name="closed" value="true" />
@@ -256,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710688164573</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- css was missing in floating, that is fixed now&#10;- version 0.0.9 and readme updated">
+      <option name="closed" value="true" />
+      <created>1710690488624</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1710690488624</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,9 +298,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/dockfx/DockPane.java</url>
-          <line>222</line>
+          <line>220</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="com.sun.javafx.fxml.PropertyNotFoundException" package="com.sun.javafx.fxml" />
+          <option name="timeStamp" value="15" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

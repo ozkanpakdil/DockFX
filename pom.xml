@@ -6,7 +6,7 @@
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.9</version>
+    <version>0.1.1</version>
     <name>DockFX</name>
     <url>https://github.com/ozkanpakdil/DockFX.git</url>
     <description>A fully featured docking library for the JavaFX platform.</description>
@@ -19,7 +19,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fileExtensions>java, properties, xml</fileExtensions>
         <junit.version>5.9.2</junit.version>
-        <lombok.version>1.18.30</lombok.version>
     </properties>
     <developers>
         <developer>
@@ -41,12 +40,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
@@ -99,13 +92,6 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>

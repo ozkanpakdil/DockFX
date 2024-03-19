@@ -24,7 +24,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -375,7 +374,6 @@ public class DockTitleBar extends HBox implements EventHandler<MouseEvent> {
      *
      * @since DockFX 0.1
      */
-    @Getter
     private abstract static class EventTask {
         /**
          * The number of times this task has been executed.
@@ -399,6 +397,10 @@ public class DockTitleBar extends HBox implements EventHandler<MouseEvent> {
          */
         public void reset() {
             executions = 0;
+        }
+
+        public int getExecutions() {
+            return executions;
         }
     }
 }

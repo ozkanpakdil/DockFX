@@ -19,7 +19,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
-import lombok.extern.slf4j.Slf4j;
 import org.dockfx.DockNode;
 import org.dockfx.DockPane;
 import org.dockfx.DockPosition;
@@ -30,8 +29,8 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.Random;
 
-@Slf4j
 public class DockFX extends Application {
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DockFX.class);
 
     public static void main(String[] args) {
         launch(args);

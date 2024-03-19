@@ -32,10 +32,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
@@ -46,9 +42,8 @@ import java.util.Objects;
  *
  * @since DockFX 0.1
  */
-@NoArgsConstructor
-@Slf4j
 public class DockNode extends VBox implements EventHandler<MouseEvent> {
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DockNode.class);
     /**
      * CSS pseudo class selector representing whether this node is currently floating.
      */
@@ -67,7 +62,6 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
      * The stage style that will be used when the dock node is floating. This must be set prior to
      * setting the dock node to floating.
      */
-    @Setter
     private StageStyle stageStyle = StageStyle.TRANSPARENT;
     /**
      * The stage that this dock node is currently using when floating.
@@ -226,7 +220,6 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
     /**
      * The position of the dock node relative to the dock pane.
      */
-    @Getter
     private DockPosition dockPosition;
 
     /**
@@ -602,6 +595,10 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
         dockPane.dock(this, getDockPosition(), sibling);
     }
 
+    public DockPosition getDockPosition() {
+        return dockPosition;
+    }
+
     /**
      * Dock this node into a dock pane.
      *
@@ -613,7 +610,7 @@ public class DockNode extends VBox implements EventHandler<MouseEvent> {
     }
 
     public void setDockPosition(DockPosition dockPos) {
-        dockPosition = dockPos;
+        this.dockPosition = dockPos;
         initMe();
     }
 
