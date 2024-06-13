@@ -64,7 +64,7 @@ public class DockFX extends Application {
                 new TableColumn<String, String>("B"), new TableColumn<String, String>("C"));
 
         // load an image to caption the dock nodes
-        Image dockImage = new Image(Objects.requireNonNull(DockFX.class.getResource("docknode.png")).toExternalForm());
+        Image dockImage = new Image(Objects.requireNonNull(DockFX.class.getResource("/org/dockfx/docknode.png")).toExternalForm());
 
         // create and dock some prototype dock nodes to the middle of the dock pane
         // the preferred sizes are used to specify the relative size of the node
@@ -79,7 +79,7 @@ public class DockFX extends Application {
         DockNode tabsDock = new DockNode();
         tabsDock.setPrefSize(300, 100);
         tabsDock.setTitle("Tabs Dock");
-        tabsDock.setGraphic(new ImageView(new Image(Objects.requireNonNull(DockFX.class.getResource("docknode.png")).toExternalForm())));
+        tabsDock.setGraphic(new ImageView(new Image(Objects.requireNonNull(DockFX.class.getResource("/org/dockfx/docknode.png")).toExternalForm())));
         tabsDock.setContents(tabs);
         tabsDock.setDockPosition(DockPosition.TOP);
         tabsDock.setDockPane(dockPane);

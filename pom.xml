@@ -6,7 +6,7 @@
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.2</version>
+    <version>0.1.3</version>
     <name>DockFX</name>
     <url>https://github.com/ozkanpakdil/DockFX.git</url>
     <description>A fully featured docking library for the JavaFX platform.</description>
@@ -86,6 +86,33 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>org.dockfx/org.dockfx.DockFX</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.gluonhq</groupId>
+                <artifactId>gluonfx-maven-plugin</artifactId>
+                <version>1.0.22</version>
+                <configuration>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <target>${gluonfx.target}</target>
+                    <mainClass>org.dockfx/org.dockfx.DockFX</mainClass>
+                    <attachList>
+                        <list>display</list>
+                        <list>lifecycle</list>
+                        <list>statusbar</list>
+                        <list>storage</list>
+                    </attachList>
+                    <releaseConfiguration>
+                        <skipSigning>true</skipSigning>
+                    </releaseConfiguration>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.12.1</version>
@@ -118,7 +145,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <keyname>32A65A9470BFA1B8988518199F3E019D85FD0E15</keyname>
+                    <keyname>3B0D64238E3B7DAE0D052D16996D97BFEFB6DA38</keyname>
                 </configuration>
             </plugin>
             <plugin>
