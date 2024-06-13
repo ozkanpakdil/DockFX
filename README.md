@@ -42,12 +42,12 @@ add the following to your pom.xml
 <dependency>
     <groupId>io.github.ozkanpakdil</groupId>
     <artifactId>dockfx</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.3</version>
 </dependency>
 ```
 or to your build.gradle
 ```groovy
-implementation 'io.github.ozkanpakdil:dockfx:0.1.2'
+implementation 'io.github.ozkanpakdil:dockfx:0.1.3'
 ```
 ## Example
 [fxml example](./src/test/resources/main.fxml) and [fxml controller](./src/test/java/org/dockfx/fxmldemo/MainController.java) and [application class](./src/test/java/org/dockfx/fxmldemo/FxmlDemo.java) are provided in the test folder.
